@@ -1,0 +1,13 @@
+@use './partials/variables' as *;
+
+// importo bootstrap
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+// importo il font
+@import 'node_modules/@fountsource/montserrat/index.css';
+
+
+body {
+    background-color: $primary-color;
+    font-family: "Montserrat", sans-serif;
+}
