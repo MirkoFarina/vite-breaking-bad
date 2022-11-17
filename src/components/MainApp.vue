@@ -10,7 +10,15 @@ export default {
     },
     data(){
         return {
-            store
+            store,
+            showCards: 9
+        }
+    },
+    methods: {
+        showMoreCards(){
+            if(this.showCards <= store.charactersData.length + 1) {
+                this.showCards = this.showCards + this.showCards;
+            }
         }
     }
 }
@@ -28,10 +36,14 @@ export default {
                 </div>
                 <div class="row">
                     <CardMain 
-                    v-for="character in store.charactersData"
+                    v-for="(character, index) in store.charactersData"
+                    v-show="index < showCards"
                     :key="character.char_id"
                     :characters="character" />
                 </div>
+                <button  @click="showMoreCards" class="btn">
+                    SHOW MORE
+                </button>
             </div>
         </div>
     </main>
@@ -47,7 +59,9 @@ export default {
     }
     .content-main {
         background-color: white;
+        text-align: center;
         .total-found {
+            text-align: start;
             padding: 10px;
             color: white;
             background-color: darken($primary-color, 9%);
@@ -56,5 +70,15 @@ export default {
 
     .row {
         padding: 20px;
+    }
+
+    button {
+        color: white;
+        background-color: darken($primary-color, 9%);
+        margin-bottom: 20px;
+        &:hover{
+            background-color: $primary-color;
+            color: white;
+        }
     }
 </style>
