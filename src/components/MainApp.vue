@@ -34,14 +34,14 @@ export default {
                         Found {{store.charactersData.length}} characters
                     </h4>
                 </div>
-                <div class="row">
+                <div class="row" v-if="store.isInLoading">
                     <CardMain 
                     v-for="(character, index) in store.charactersData"
                     v-show="index < showCards"
                     :key="character.char_id"
                     :characters="character" />
                 </div>
-                <button  @click="showMoreCards" class="btn">
+                <button  @click="showMoreCards" class="btn" v-if="showCards <= store.charactersData.length + 1">
                     SHOW MORE
                 </button>
             </div>
