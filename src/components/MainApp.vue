@@ -1,12 +1,14 @@
 <script>
 import SelectCategory from './SelectCategory.vue';
 import CardMain from './CardMain.vue';
+import LoadingProgress from './LoadingProgress.vue';
 import {store} from '../data/store';
 export default {
     name:'MainApp',
     components: {
         SelectCategory,
-        CardMain
+        CardMain,
+        LoadingProgress
     },
     data(){
         return {
@@ -40,10 +42,11 @@ export default {
                     v-show="index < showCards"
                     :key="character.char_id"
                     :characters="character" />
+                    <button  @click="showMoreCards" class="btn" v-if="showCards <= store.charactersData.length + 1">
+                        SHOW MORE
+                    </button>
                 </div>
-                <button  @click="showMoreCards" class="btn" v-if="showCards <= store.charactersData.length + 1">
-                    SHOW MORE
-                </button>
+                <LoadingProgress v-else />
             </div>
         </div>
     </main>

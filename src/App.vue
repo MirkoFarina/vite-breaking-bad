@@ -16,9 +16,11 @@ export default {
     },
     methods: {
         getApiRequest(){
+            store.isInLoading = false;
             axios.get('https://www.breakingbadapi.com/api/characters')
                 .then(characters => {
                     store.charactersData = characters.data;
+                    store.isInLoading = true;
                 })
         }
     },
