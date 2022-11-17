@@ -42,10 +42,10 @@ export default {
                     v-show="index < showCards"
                     :key="character.char_id"
                     :characters="character" />
-                    <button  @click="showMoreCards" class="btn" v-if="showCards <= store.charactersData.length + 1">
-                        SHOW MORE
-                    </button>
                 </div>
+                <button  @click="showMoreCards" class="btn" v-if="showCards <= store.charactersData.length + 1">
+                    SHOW MORE
+                </button>
                 <LoadingProgress v-else />
             </div>
         </div>
