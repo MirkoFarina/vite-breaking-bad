@@ -10,7 +10,7 @@ export default {
 
 <template>
     <div class="col-md-6 col-xl-4">
-        <div class="card" style="width: 18rem;">
+        <div class="card">
             <div class="img">
                 <img :src="characters.img" class="card-img-top" :alt="characters.name">
             </div>
@@ -53,6 +53,7 @@ export default {
                 max-width: 100%;
                 height: 100%;
                 object-fit: cover;
+                object-position: top;
                 transition: all .4s;
                 &:hover {
                     transform: scale(1.05);
