@@ -13,7 +13,8 @@ export default {
     data(){
         return {
             store,
-            showCards: 9
+            showCards: 9,
+            charactersFind: null
         }
     },
     methods: {
@@ -21,6 +22,11 @@ export default {
             if(this.showCards <= store.charactersData.length + 1) {
                 this.showCards = this.showCards + this.showCards;
             }
+        }
+    },
+    computed: {
+        showTheLength(){
+            return this.charactersFind =  store.charactersData.length;
         }
     }
 }
@@ -33,7 +39,7 @@ export default {
             <div class="mf-container">
                 <div class="total-found">
                     <h4>
-                        Found {{store.charactersData.length}} characters
+                       FOUND:  {{charactersFind}} characters
                     </h4>
                 </div>
                 <div class="row" v-if="store.isInLoading">
