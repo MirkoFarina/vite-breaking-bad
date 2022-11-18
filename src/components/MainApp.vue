@@ -28,7 +28,7 @@ export default {
 
 <template>
     <main class="container">
-        <SelectCategory />
+        <SelectCategory @changeFilter="$emit('getNewApi')"/>
         <div class="content-main">
             <div class="mf-container">
                 <div class="total-found">

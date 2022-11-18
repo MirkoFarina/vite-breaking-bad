@@ -1,15 +1,20 @@
 <script>
+import {store} from '../data/store';
 export default {
-    name: 'SelectCategory'
+    name: 'SelectCategory',
+    data (){
+        return {
+            store
+        }
+    }
 }
 </script>
 
 <template>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Select Category</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <select @change="$emit('changeFilter')" v-model="store.filterWhitValue" class="form-select" aria-label="Default select example">
+        <option value="" selected>Select Category</option>
+        <option value="breaking bad">Breaking Bad</option>
+        <option value="better call saul">Better Call Saul</option>
     </select>
 </template>
 
